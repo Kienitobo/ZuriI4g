@@ -1,36 +1,34 @@
-# Read text from a file, and count the occurence of words in that text
-# Example:
-# count_words("The cake is done. It is a big cake!") 
-# --> {"cake":2, "big":1, "is":2, "the":1, "a":1, "it":1}
-
-from distutils import text_file
-from fileinput import filename
-from pydoc import text
-import string
+from io import BufferedReader
+from mimetypes import init
+from unicodedata import name
 
 
-def read_file_content(filename):
-    # [assignment] Add your code here 
-    with open(filename) as file:
-     data=file.read()
-    return data
-print(read_file_content(r'C:\Users\Kieni\Documents\Zuri tasks\Reading-Text-Files\Reading-Text-Files\story.txt'))
+class Student:
+    # [assignment] Skeleton class. Add your code here
+       def __init__(self, name, age, tracks, score):
+           self.name=name
+           self.age=age
+           self.tracks=tracks
+           self.score=score
+           print('Name:',name,'\n','Age:', age,'\n','Track:', tracks,'\n','Score:', score)
+           
+       def change_name(self,name):
+           print('\n','Name: ',name)
+           
+       def change_age(self, age):
+           print('Age: ',int(age))
+           
+       def add_track(self, tracks):
+           print('Tracks: ',tracks)
+           
+       def get_score(self, score):
+           print('Score: ',score)
+           
 
-def count_words():
-    text = read_file_content(r'C:\Users\Kieni\Documents\Zuri tasks\Reading-Text-Files\Reading-Text-Files\story.txt')
-    # [assignment] Add your code here
+Bob = Student(name="Bob", age=26, tracks=["FE","BE"],score=20.90)
 
-    for char in '-.,?:\n':
-     text=text.replace(char,'')
-    text=text.lower()
-    text=text.split()
-    sentence_dictionary={}
-    for item in text:
-        if item in sentence_dictionary:
-           sentence_dictionary[item] =sentence_dictionary[item]+1
-        else:
-          sentence_dictionary[item]=1
-
-    return sentence_dictionary
-
-print((count_words()))
+# Expected methods
+Bob.change_name("Peter")
+Bob.change_age(34)
+Bob.add_track("UI/UX")
+Bob.get_score(65)
